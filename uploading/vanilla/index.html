@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload with Vanilla</title>
+</head>
+
+<body>
+
+    <h2>Vanilla File Upload</h2>
+    <form id="upload_form" enctype="multipart/form-data" method="post">
+        <input type="file" name="file1" id="file1"><br>
+        <progress id="progressBar" value="0" max="100" style="width:300px;"></progress>
+        <h3 id="status"></h3>
+        <p id="loaded_n_total"></p>
+        <hr />
+        <button type="submit">Enviar arquivo</button>
+    </form>
+
+    <script src="upload.js"></script>
+
+
+    <script>
+      /*  var formData = new FormData();
+
+        formData.append("username", "Groucho");
+        formData.append("accountnum", 123456); // number 123456 is immediately converted to a string "123456"
+        // HTML file input, chosen by user
+        // formData.append("userfile", fileInputElement.files[0]);
+
+        // JavaScript file-like object
+        var content = '<a id="a"><b id="b">hey!</b></a>'; // the body of the new file...
+        var blob = new Blob([content], { type: "text/xml" });
+
+        formData.append("file", blob, "blob.html");
+
+        var request = new XMLHttpRequest();
+        request.open("POST", "http://localhost:5000/profile/upload");
+        request.upload.addEventListener('progress', (e) => {
+            console.log(e);
+        });
+        request.onreadystatechange = () => {
+            console.log(request.readyState);
+            console.log(request.responseText);
+        };
+        request.send(formData);*/
+
+    </script>
+</body>
+
+</html>
