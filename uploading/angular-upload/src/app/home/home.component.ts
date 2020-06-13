@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
 
   uploadStatus: string = '';
 
+  status: string = '';
+
   constructor(
     private http: HttpClient
   ) { }
@@ -41,6 +43,7 @@ export class HomeComponent implements OnInit {
       break;
         case HttpEventType.Response:
           console.log('Response', event.status, event.body);
+          this.status = JSON.stringify(event.body);
       break;
         default:
           return `File "x" surprising upload event: ${event.type}.`;
