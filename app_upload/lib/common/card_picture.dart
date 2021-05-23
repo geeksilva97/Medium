@@ -55,7 +55,6 @@ class CardPicture extends StatelessWidget {
           onTap: this.onTap,
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 18, horizontal: 25),
-            // alignment: Alignment.bottomRight,
             width: size.width * .70,
             height: 100,
             child: Column(
@@ -63,7 +62,7 @@ class CardPicture extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Anexar Foto',
+                  'Attach Picture',
                   style: TextStyle(fontSize: 17.0, color: Colors.grey[600]),
                 ),
                 Icon(
