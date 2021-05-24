@@ -118,12 +118,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
-        // padding: EdgeInsets.symmetric(horizontal: 12.0, vertical: 20.0),
         padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
         child: Column(
           children: [
@@ -172,38 +169,48 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: [
                     Expanded(
                       child: Container(
-                        decoration: BoxDecoration(
-                          // color: Colors.indigo,
-                          gradient: LinearGradient(
-                            colors: [Colors.indigo, Colors.indigo.shade800]
-                          ),
-                          borderRadius: BorderRadius.all(Radius.circular(3.0))
-                        ),
-                        child: RawMaterialButton(
-                          padding: EdgeInsets.symmetric(vertical: 12.0),
-                          onPressed: () async {
-                            
-                            // show loader
-                            presentLoader(context, text: 'Wait...');
+                          decoration: BoxDecoration(
+                              // color: Colors.indigo,
+                              gradient: LinearGradient(colors: [
+                                Colors.indigo,
+                                Colors.indigo.shade800
+                              ]),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(3.0))),
+                          child: RawMaterialButton(
+                            padding: EdgeInsets.symmetric(vertical: 12.0),
+                            onPressed: () async {
+                              // show loader
+                              presentLoader(context, text: 'Wait...');
 
-                            // calling with dio
-                            var responseDataDio = await _dioUploadService.uploadPhotos(_images);
+                              // calling with dio
+                              var responseDataDio =
+                                  await _dioUploadService.uploadPhotos(_images);
 
-                            // calling with http
-                            var responseDataHttp = await _httpUploadService.uploadPhotos(_images);
-                            
-                            // hide loader
-                            Navigator.of(context).pop();
+                              // calling with http
+                              var responseDataHttp = await _httpUploadService
+                                  .uploadPhotos(_images);
 
-                            // showing alert dialogs
-                            await presentAlert(context, title: 'Success Dio', message: responseDataDio.toString());
-                            await presentAlert(context, title: 'Success HTTP', message: responseDataHttp);
-                          },
-                          child: Center(
-                          child: Text('SEND', style: TextStyle(color: Colors.white, fontSize: 17.0, fontWeight: FontWeight.bold),)
-                        ),
-                        )
-                      ),
+                              // hide loader
+                              Navigator.of(context).pop();
+
+                              // showing alert dialogs
+                              await presentAlert(context,
+                                  title: 'Success Dio',
+                                  message: responseDataDio.toString());
+                              await presentAlert(context,
+                                  title: 'Success HTTP',
+                                  message: responseDataHttp);
+                            },
+                            child: Center(
+                                child: Text(
+                              'SEND',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.bold),
+                            )),
+                          )),
                     )
                   ],
                 ))
@@ -211,6 +218,5 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ));
-
   }
 }

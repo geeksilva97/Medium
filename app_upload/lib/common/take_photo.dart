@@ -30,14 +30,7 @@ class _TakePhotoState extends State<TakePhoto> {
   }
 
   Future<XFile?> takePicture() async {
-    // final CameraController? cameraController = _controller;
-    // if (cameraController == null || !cameraController.value.isInitialized) {
-    //   showInSnackBar('Error: select a camera first.');
-    //   return null;
-    // }
-
     if (_controller.value.isTakingPicture) {
-      // A capture is already pending, do nothing.
       return null;
     }
 
