@@ -5,8 +5,7 @@ import 'package:http/http.dart' as http;
 class HttpUploadService {
   
   Future<String> uploadPhotos(List<String> paths) async {
-    Uri uri = Uri.parse('http://10.0.0.103:5000/profile/upload-mutiple');
-    print(uri.toString());
+    Uri uri = Uri.parse('http://10.0.0.101:5000/profile/upload-mutiple');
     http.MultipartRequest request = http.MultipartRequest('POST', uri);
     for(String path in paths){
       request.files.add(await http.MultipartFile.fromPath('files', path));
